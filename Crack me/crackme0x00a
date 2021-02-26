@@ -1,0 +1,23 @@
+It asks us to enter a password
+We use strings crackme0x00a to view the strings
+
+
+GLIBC_2.0
+PTRh
+D$,1
+T$,e3
+UWVS
+[^_]
+Enter password: 
+Congrats!
+Wrong!
+;*2$"
+g00dJ0B!
+GCC: (Ubuntu/Linaro 4.6.1-9ubuntu3) 4.6.1
+
+We try using goodjob as it might me the password
+
+Enter password: g00dJ0B!
+Congrats!
+
+It works!
