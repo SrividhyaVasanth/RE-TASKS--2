@@ -1,0 +1,54 @@
+FIrstly, we use disassemble main and set the format as intel
+gdb-peda$ disassemble main
+Dump of assembler code for function main:
+   0x080483e4 <+0>:	push   ebp
+   0x080483e5 <+1>:	mov    ebp,esp
+   0x080483e7 <+3>:	sub    esp,0x18
+   0x080483ea <+6>:	and    esp,0xfffffff0
+   0x080483ed <+9>:	mov    eax,0x0
+   0x080483f2 <+14>:	add    eax,0xf
+   0x080483f5 <+17>:	add    eax,0xf
+   0x080483f8 <+20>:	shr    eax,0x4
+   0x080483fb <+23>:	shl    eax,0x4
+   0x080483fe <+26>:	sub    esp,eax
+   0x08048400 <+28>:	mov    DWORD PTR [esp],0x8048528
+   0x08048407 <+35>:	call   0x804831c <printf@plt>
+   0x0804840c <+40>:	mov    DWORD PTR [esp],0x8048541
+   0x08048413 <+47>:	call   0x804831c <printf@plt>
+   0x08048418 <+52>:	lea    eax,[ebp-0x4]
+   0x0804841b <+55>:	mov    DWORD PTR [esp+0x4],eax
+   0x0804841f <+59>:	mov    DWORD PTR [esp],0x804854c
+   0x08048426 <+66>:	call   0x804830c <scanf@plt>
+   0x0804842b <+71>:	cmp    DWORD PTR [ebp-0x4],0x149a
+   0x08048432 <+78>:	je     0x8048442 <main+94>
+   0x08048434 <+80>:	mov    DWORD PTR [esp],0x804854f
+   0x0804843b <+87>:	call   0x804831c <printf@plt>
+   0x08048440 <+92>:	jmp    0x804844e <main+106>
+   0x08048442 <+94>:	mov    DWORD PTR [esp],0x8048562
+   0x08048449 <+101>:	call   0x804831c <printf@plt>
+   0x0804844e <+106>:	mov    eax,0x0
+   0x08048453 <+111>:	leave  
+   0x08048454 <+112>:	ret    
+End of assembler dump.
+
+When we run the file it asks for a Password .
+We can see that there are a bunch of hexadecimal number which could probably be the password.
+
+after converting the hexadecimal to numbers
+
+>>> 0x8048528
+134513960
+>>> 0x8048541
+134513985
+>>> 0x804854c
+134513996
+>>> 0x149a
+5274
+>>> 
+We can try to enter the password with these numbers
+IOLI Crackme Level 0x01
+Password: 5274
+Password OK :)
+
+5274 worked!
+0x0804842b was basically comparing the input we give as password to the value of 0x149a in hexadecimal.
