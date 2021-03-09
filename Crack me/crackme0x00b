@@ -1,0 +1,14 @@
+On running the file it asks us to enter a password
+If the password is incorrect it returns "Wrong!"
+strings crackme0x00b :to maybe find the password if its in the form of a string
+Didn't find the password there
+another way is to use hexdump
+xxd crackme0x00b:
+w...0...w...g...
+00001050: 7200 0000 6500 0000 6100 0000 7400 0000  r...e...a...t...
+w0w great:this might be the password
+no its wrong
+w0wgreat:
+Congrats!
+
+
