@@ -1,0 +1,15 @@
+this is a similiar challenge where we have to enter the correct password.
+when we do disassemble main we get this
+push   ebp
+   0x0804850a <+1>:	mov    ebp,esp
+   0x0804850c <+3>:	sub    esp,0x88
+   0x08048512 <+9>:	and    esp,0xfffffff0
+   0x08048515 <+12>:	mov    eax,0x0
+   0x0804851a <+17>:	add    eax,0xf
+   0x0804851d <+20>:	add    eax,0xf
+   0x08048520 <+23>:	shr    eax,0x4
+   0x08048523 <+26>:	shl    eax,0x4
+   0x08048526 <+29>:	sub    esp,eax
+If we see carefully, a loop is going on here
+It loops through each character of 0xfffffff0
+and it looks like its adding sum of each individual digit 
